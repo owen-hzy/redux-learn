@@ -1,10 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+import App from "./components/app";
+import reducers from "./reducers";
 
-const App = () => {
-    return (
-        <h1>Hello World!</h1>
-    );
-}
-
-ReactDOM.render(<App />, document.querySelector(".container"));
+ReactDOM.render(
+    <Provider store={createStore(reducers)}>
+        <App />
+    </Provider>
+    , document.querySelector(".container")
+);
